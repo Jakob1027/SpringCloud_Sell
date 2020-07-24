@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: api-gateway
+  redis:
+    host: ${IP:localhost}
+    port: 6379
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${IP:localhost}:8761/eureka
+  instance:
+    prefer-ip-address: true
+zuul:
+  routes:
+    #    /myProduct/product/list -> /product/product/list
+    #    myProduct:
+    #      path: /myProduct/**
+    #      serviceId: product
+    #      \u7B80\u6D01\u5199\u6CD5
+    product: /myProduct/**
+  ignored-patterns:
+    - /**/product/listForOrder
+  #  全部服务忽略敏感头(都可以传递cookie)
+  sensitive-headers:
+server:
+  port: 9000

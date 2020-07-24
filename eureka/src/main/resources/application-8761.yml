@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: springcloud-eureka-server
+server:
+  port: 8761
+#设置该服务中心的hostname，指定ip,该实例名称不能重复
+eureka:
+  instance:
+    hostname: eureka8761
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka8761:8761/eureka

@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Jakob1027/config-repo.git
+          username: ###
+          password: @@@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
